@@ -1,0 +1,41 @@
+#intro
+ACID transactions are database transactions that must happen together or not at all ensuring safety and consistency
+A - atomicity (all operations will either fail or succed or fail together)
+C - consistency (all changes made by operations are consistent with database constarints)
+I - isolation (multiple transactions can happen at the same time without affecting each other)
+D - durability (changes made by transactions are consistent no matter what)
+
+#ACID transactions
+single-document operations - are atomic;updates a single document
+multiple-document operations - are not atomic and require extra steps to be ACID transactions
+
+#using transactions
+transfer money between 2 accounts
+a transactions has max run time of 1 min
+
+#A Transaction
+
+const session = db.getMongo().startSession()
+
+session.startTransaction()
+
+const account = session.getDatabase('< add database name here>').getCollection('<add collection name here>')
+
+//Add database operations like .updateOne() here
+
+session.commitTransaction()
+
+#Aborting a Transaction
+
+const session = db.getMongo().startSession()
+
+session.startTransaction()
+
+const account = session.getDatabase('< add database name here>').getCollection('<add collection name here>')
+
+//Add database operations like .updateOne() here
+
+session.abortTransaction()
+
+# how to create and use multi-document transactions by using the startTransaction() and commitTransaction() commands,
+how to cancel multi-document transactions by using the abortTransaction() command.

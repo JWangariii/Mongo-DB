@@ -1,0 +1,49 @@
+\*MongoDB is an object-oriented, simple, dynamic and scalable NoSQL database.
+-it's a document database;stores data in documents
+-data displayed in JSON format
+-and stored in BSON format;supports huge range of data types unlike JSON
+-has flexible schema;can work with different data types
+-data objects are stored as flexible JSON like documents
+-data is stored in a collection instead of rows,columns
+-offers high-perfomence,high-availability,horizontal scaling
+-has a flexible schema, which means that documents with different structures can be stored in the same collection.
+
+\*object ID - a data type used to create unique identifiers for required \_id field
+
+- If an inserted document doesn’t have an \_id field, MongoDB automatically generates one.
+
+*document is the basic unit of data stored in mongoDB
+*collection is a grouping of those documents
+\*database a container for collections
+
+\*DATA MODELLING
+-is the process of defining hoe data is stored and the relationships between different entities in tour data
+-polimephysm- means data can be stored in the same collection can be different
+-ask how the user will relate with our database
+-not constrined to one method of storing data.
+
+\*types of data relationships
+-data accessed together should be stored together
+1.one to one - data entity in one set is connected to one data entity in another set
+2.one to many - data entity in one set is connected to any number of data entities in another set
+3.many to many - any number of entities in one set is connected to any number of entities in another
+
+\*ways to model relationships
+-embedding - taking related data and storing it in our document
+-referencing - refering to documents in other collections in our document
+
+\*embedding
+-involve single queries hence better perfomance
+-single opration to add/delete data
+-pitfalls : large and unbounded(grows infinitely) documents, duplication
+ideal for:
+-one to many
+-many to many
+
+\*referncing/linking/data normalization
+-no duplication
+-smaller documents
+-pitfall : joining data from different documents
+saves the id of one document in another to link the two
+
+\*use atlas tools for schema help

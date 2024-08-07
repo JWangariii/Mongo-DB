@@ -1,0 +1,152 @@
+#Inserting Documents
+insertOne()
+insertMany()
+
+#Finding Documents
+/Find a Document with Equality
+db.zips.find({ \_id: ObjectId("5c8eccc1caa187d17ca6ed16") })
+
+/Find a Document by Using the $in Operator
+Find a Document by Using the $in Operator
+
+/Finding Documents by Using Comparison Operators
+$gt
+Use the $gt operator to match documents with a field greater than the given value. For example:
+
+db.sales.find({ "items.price": { $gt: 50}})
+$lt
+Use the $lt operator to match documents with a field less than the given value. For example:
+
+db.sales.find({ "items.price": { $lt: 50}})
+$lte
+Use the $lte operator to match documents with a field less than or equal to the given value. For example:
+
+db.sales.find({ "customer.age": { $lte: 65}})
+$gte
+Use the $gte operator to match documents with a field greater than or equal to the given value. For example:
+
+db.sales.find({ "customer.age": { $gte: 65}})
+
+#Finding an Array Element
+/Find Documents with an Array That Contains a Specified Value
+db.accounts.find({ products: "InvestmentFund"})
+
+/Find a Document by Using the $elemMatch Operator
+Use the $elemMatch operator to find all documents that contain the specified subdocument. For example:
+
+db.sales.find({
+items: {
+$elemMatch: { name: "laptop", price: { $gt: 800 }, quantity: { $gte: 1 } },
+},
+})
+
+#Finding Documents by Using Logical Operators
+/Find a Document by Using Implicit $and
+Use implicit $and to select documents that match multiple expressions. For example:
+
+db.routes.find({ "airline.name": "Southwest Airlines", stops: { $gte: 1 } })
+
+/Find a Document by Using the $or Operator
+Use the $or operator to select documents that match at least one of the included expressions. For example:
+
+db.routes.find({
+$or: [{ dst_airport: "SEA" }, { src_airport: "SEA" }],
+})
+
+/Find a Document by Using the $and Operator
+Use the $and operator to use multiple $or expressions in your query.
+
+db.routes.find({
+$and: [
+{ $or: [{ dst_airport: "SEA" }, { src_airport: "SEA" }] },
+{ $or: [{ "airline.name": "American Airlines" }, { airplane: 320 }] },
+]
+})
+
+#conclusion
+Conclusion
+MongoDB CRUD Operations: Insert and Find Documents
+
+$gt (greater than)
+$lt (less than)
+$lte (less than or equal to)
+$gte (greater than or equal to)
+
+You also used the following logical operators:
+$and
+$or
+Finally, you learned how to query elements in an array and how to use the $elemMatch operator.
+
+#Replacing a Document in MongoDB
+/replaceOne()
+
+#Updating MongoDB Documents
+/updateOne()
+
+$set
+The $set operator replaces the value of a field with the specified value
+
+upsert
+The upsert option creates a new document if no documents match the filtered criteria
+
+$push
+The $push operator adds a new value to the hosts array field
+
+#Updating MongoDB Documents by Using findAndModify()
+findAndModify() method is used to find and replace a single document
+
+#Updating MongoDB Documents by Using updateMany()
+To update multiple documents, use the updateMany() method
+
+#Deleting Documents in MongoDB
+use the deleteOne() or deleteMany() methods
+
+#conclusion
+MongoDB CRUD Operations: Replace and Delete Documents
+
+/Replaced a single document by using db.collection.replaceOne().
+/Updated a field value by using the $set update operator in db.collection.updateOne().
+/Added a value to an array by using the $push update operator in db.collection.updateOne().
+/Added a new field value to a document by using the upsert option in db.collection.updateOne().
+/Found and modified a document by using db.collection.findAndModify().
+/Updated multiple documents by using db.collection.updateMany().
+/Deleted a document by using db.collection.deleteOne().
+
+#-Sorting and Limiting Query Results in MongoDB
+/Sorting Results
+Use cursor.sort() to return query results in a specified order
+Syntax:
+db.collection.find(<query>).sort(<sort>)
+
+/Limiting Results
+Use cursor.limit() to specify the maximum number of documents the cursor will return
+Syntax:
+db.companies.find(<query>).limit(<number>)
+
+/Add a Projection Document
+/To specify fields to include or exclude in the result set, add a projection document as the second parameter in the call to db.collection.find().
+Syntax:
+db.collection.find( <query>, <projection> )
+
+/Include a Field
+To include a field, set its value to 1 in the projection document.
+Syntax:
+db.collection.find( <query>, { <field> : 1 })
+
+/Exclude a Field
+To exclude a field, set its value to 0 in the projection document.
+Syntax:
+db.collection.find(query, { <field> : 0, <field>: 0 })
+
+#Counting Documents in a MongoDB Collection
+/Count Documents
+Use db.collection.countDocuments() to count the number of documents that match a query. countDocuments() takes two parameters: a query document and an options document.
+Syntax:
+db.collection.countDocuments( <query>, <options> )
+The query selects the documents to be counted.
+
+#MongoDB CRUD Operations: Modifying Query Results
+/Return query results in a specified order by using cursor.sort().
+/Constrained the number of results returned by using cursor.limit().
+/Specified fields to return by adding a projection document parameter in calls to db.collection.find().
+/Counted the number of documents that match a query by using db.collection.countDocuments().

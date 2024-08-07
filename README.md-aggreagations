@@ -1,0 +1,37 @@
+/Aggregation: Collection and summary of data
+/Stage: One of the built-in methods that can be completed on the data, but does not permanently alter it
+/Aggregation pipeline: A series of stages completed on the data in order
+
+#Using $match and $group Stages in a MongoDB Aggregation Pipeline
+Review the following sections, which show the code for the $match and $group aggregation stages.
+
+$match
+The $match stage filters for documents that match specified conditions
+
+$group
+The $group stage groups documents by a group key.
+
+#Using $sort and $limit Stages in a MongoDB Aggregation Pipeline
+Review the following sections, which show the code for the $sort and $limit aggregation stages.
+
+$sort
+The $sort stage sorts all input documents and returns them to the pipeline in sorted order. 
+We use 1 to represent ascending order, and -1 to represent descending order.
+
+$limit
+The $limit stage returns only a specified number of records.
+
+#Using $project, $count, and $set Stages in a MongoDB Aggregation Pipeline
+ $project, $set, and $count aggregation stages.
+
+$project
+The $project stage specifies the fields of the output documents. 1 means that the field should be included, 
+and 0 means that the field should be supressed. The field can also be assigned a new value.
+
+$set
+The $set stage creates new fields or changes the value of existing fields, and then outputs the documents with the new fields.
+
+$count
+The $count stage creates a new document, with the number of documents at that stage in the aggregation pipeline assigned to the specified field name.
+
+#Using the $out Stage in a MongoDB Aggregation Pipeline
